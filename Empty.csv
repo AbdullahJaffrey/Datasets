@@ -1,0 +1,27 @@
+select * from netflix_data
+where country in ('Sweden','Australia')
+order by country;
+
+update netflix_data
+set director = 'None'
+where director isnull ;
+select * from netflix_data
+where country in ('Sweden','Australia');
+
+select * from netflix_data
+where title like 'D%b';
+
+select * from netflix_data
+where release_year between 2012 and 2014 and country = 'Russia';
+
+select netflix_data.title, count(duration) as total_duration, avg(release_year) as avg_release_year, max(genre) as max_genre from netflix_data
+where release_year between 2012 and 2014 and country = 'Russia'
+Group by title
+order by title desc;
+
+select (release_year) from netflix_data
+where country = 'Russia' and genre = 'Kids';
+
+
+select (release_year) from netflix_data
+where director is not null
